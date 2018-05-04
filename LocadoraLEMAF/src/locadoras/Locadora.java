@@ -7,13 +7,15 @@ import java.util.ArrayList;
 
 public abstract class Locadora {
     
-    private double taxaMeioDeSemanaRegular;
-    private double taxaFimDeSemanaRegular;
-    private double taxaMeioDeSemanaFidelidade;
-    private double taxaFimDeSemanaFidelidade;
+    protected double taxaMeioDeSemanaRegular;
+    protected double taxaFimDeSemanaRegular;
+    protected double taxaMeioDeSemanaFidelidade;
+    protected double taxaFimDeSemanaFidelidade;
     
-    public abstract void taxarMeioDeSemana();
-    public abstract void taxarFimDeSemana();
+    public abstract void taxarMeioDeSemanaRegular(Carro c);
+    public abstract void taxarFimDeSemanaRegular(Carro c);
+    public abstract void taxarMeioDeSemanaFidelidade(Carro c);
+    public abstract void taxarFimDeSemanaFidelidade(Carro c);
 
     public Locadora(double taxaMeioDeSemanaRegular, double taxaFimDeSemanaRegular, double taxaMeioDeSemanaFidelidade, double taxaFimDeSemanaFidelidade) {
         this.taxaMeioDeSemanaRegular = taxaMeioDeSemanaRegular;

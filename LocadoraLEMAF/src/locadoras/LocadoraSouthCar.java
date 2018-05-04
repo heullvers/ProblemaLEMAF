@@ -6,6 +6,7 @@
 package locadoras;
 
 
+import automovel.Carro;
 import automovel.CarroCompacto;
 import java.util.ArrayList;
 
@@ -22,16 +23,29 @@ public class LocadoraSouthCar extends Locadora{
         carrosPremium = new ArrayList<>();
     }
 
-
-
     @Override
-    public void taxarMeioDeSemana() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void taxarMeioDeSemanaRegular(Carro c) {
+        
+        CarroCompacto cc = (CarroCompacto)c;
+        cc.setValorAluguelTotal(taxaMeioDeSemanaRegular + (taxaMeioDeSemanaRegular * c.getTaxa()));
     }
 
     @Override
-    public void taxarFimDeSemana() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void taxarFimDeSemanaRegular(Carro c) {
+        CarroCompacto cc = (CarroCompacto)c;
+        cc.setValorAluguelTotal(taxaFimDeSemanaRegular + (taxaFimDeSemanaRegular * c.getTaxa()));
+    }
+    
+    @Override
+    public void taxarMeioDeSemanaFidelidade(Carro c) {
+        CarroCompacto cc = (CarroCompacto)c;
+        cc.setValorAluguelTotal(taxaMeioDeSemanaFidelidade + (taxaMeioDeSemanaFidelidade * c.getTaxa()));
+    }
+
+    @Override
+    public void taxarFimDeSemanaFidelidade(Carro c) {
+        CarroCompacto cc = (CarroCompacto)c;
+        cc.setValorAluguelTotal(taxaFimDeSemanaFidelidade + (taxaFimDeSemanaFidelidade * c.getTaxa()));  
     }
 
     public ArrayList<CarroCompacto> getCarrosNormais() {
@@ -59,9 +73,6 @@ public class LocadoraSouthCar extends Locadora{
         }
     
     }
-    
-    
-    
 
 
    

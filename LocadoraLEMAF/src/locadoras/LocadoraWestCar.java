@@ -16,18 +16,34 @@ public class LocadoraWestCar extends Locadora{
         carrosNormais = new ArrayList<>();
         carrosPremium = new ArrayList<>();
     }
-
+    
     @Override
-    public void taxarMeioDeSemana() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void taxarMeioDeSemanaRegular(Carro c) {
+        
+        CarroEsportivo ce = (CarroEsportivo)c;
+        ce.setValorAluguelTotal(taxaMeioDeSemanaRegular + (taxaMeioDeSemanaRegular * c.getTaxa()));
     }
 
     @Override
-    public void taxarFimDeSemana() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void taxarFimDeSemanaRegular(Carro c) {
+        CarroEsportivo ce = (CarroEsportivo)c;
+        ce.setValorAluguelTotal(taxaFimDeSemanaRegular + (taxaFimDeSemanaRegular * c.getTaxa()));
     }
     
-        public ArrayList<CarroEsportivo> getCarrosNormais() {
+    @Override
+    public void taxarMeioDeSemanaFidelidade(Carro c) {
+        CarroEsportivo ce = (CarroEsportivo)c;
+        ce.setValorAluguelTotal(taxaMeioDeSemanaFidelidade + (taxaMeioDeSemanaFidelidade * c.getTaxa()));
+    }
+
+    @Override
+    public void taxarFimDeSemanaFidelidade(Carro c) {
+        CarroEsportivo ce = (CarroEsportivo)c;
+        ce.setValorAluguelTotal(taxaFimDeSemanaFidelidade + (taxaFimDeSemanaFidelidade * c.getTaxa()));  
+    }
+
+    
+    public ArrayList<CarroEsportivo> getCarrosNormais() {
         return carrosNormais;
     }
 

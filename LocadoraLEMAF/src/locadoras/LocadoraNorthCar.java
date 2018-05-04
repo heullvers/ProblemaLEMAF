@@ -19,13 +19,28 @@ public class LocadoraNorthCar extends Locadora{
     }
 
     @Override
-    public void taxarMeioDeSemana() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void taxarMeioDeSemanaRegular(Carro c) {
+        
+        CarroSUVs cs = (CarroSUVs)c;
+        cs.setValorAluguelTotal(taxaMeioDeSemanaRegular + (taxaMeioDeSemanaRegular * c.getTaxa()));
     }
 
     @Override
-    public void taxarFimDeSemana() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void taxarFimDeSemanaRegular(Carro c) {
+        CarroSUVs cs = (CarroSUVs)c;
+        cs.setValorAluguelTotal(taxaFimDeSemanaRegular + (taxaFimDeSemanaRegular * c.getTaxa()));
+    }
+    
+    @Override
+    public void taxarMeioDeSemanaFidelidade(Carro c) {
+        CarroSUVs cs = (CarroSUVs)c;
+        cs.setValorAluguelTotal(taxaMeioDeSemanaFidelidade + (taxaMeioDeSemanaFidelidade * c.getTaxa()));
+    }
+
+    @Override
+    public void taxarFimDeSemanaFidelidade(Carro c) {
+        CarroSUVs cs = (CarroSUVs)c;
+        cs.setValorAluguelTotal(taxaFimDeSemanaFidelidade + (taxaFimDeSemanaFidelidade * c.getTaxa()));  
     }
 
     public ArrayList<CarroSUVs> getCarrosNormais() {

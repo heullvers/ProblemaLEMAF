@@ -21,8 +21,8 @@ public class Principal {
         
         LocadoraDAO ld = new LocadoraDAO(lsc, lwc, lnc);
         
-        CarroCompacto cc = new CarroCompacto("Ferrari", 2);
-        CarroCompacto cc2 = new CarroCompacto("Monlinete", 3);
+        CarroCompacto cc = new CarroCompacto("Ferrari", 2, 0.1);
+        CarroCompacto cc2 = new CarroCompacto("Molinete", 3, 0.2);
         
         ld.cadastrarCarroNormalSouthCar(cc);
         ld.cadastrarCarroNormalSouthCar(cc2);
