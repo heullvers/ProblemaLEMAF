@@ -21,15 +21,31 @@ public class Principal {
         
         LocadoraDAO ld = new LocadoraDAO(lsc, lwc, lnc);
         
-        CarroCompacto cc = new CarroCompacto("Ferrari", 2, 0.1);
-        CarroCompacto cc2 = new CarroCompacto("Molinete", 3, 0.2);
+        CarroEsportivo ce = new CarroEsportivo("Ferrari", 2, 0.1);
+        CarroEsportivo ce2 = new CarroEsportivo("Molinete", 1, 0.2);
+        CarroEsportivo ce3 = new CarroEsportivo("Tey Tey", 2, 0.15);
+        CarroEsportivo ce4 = new CarroEsportivo("Pow Pow", 1, 0.16);
+        CarroEsportivo ce5 = new CarroEsportivo("Repeation", 2, 0.14);
         
-        ld.cadastrarCarroNormalSouthCar(cc);
-        //ld.cadastrarCarroNormalSouthCar(cc2);
-        double resultado = lsc.taxarFimDeSemanaRegular(cc) + lsc.taxarFimDeSemanaRegular(cc);
-        lsc.taxarFimDeSemanaRegular(cc);
-        //lsc.taxarMeioDeSemanaFidelidade(cc2);
-        //System.out.println(resultado);
+        ld.cadastrarCarroNormalWestCar(ce);
+        ld.cadastrarCarroNormalWestCar(ce2);
+        ld.cadastrarCarroNormalWestCar(ce3);
+        ld.cadastrarCarroNormalWestCar(ce4);
+        ld.cadastrarCarroNormalWestCar(ce5);
+        
+        //dados do arquivo
+        String tipo = "normal";
+        int qntPassageiros = 2;
+        int diasUteis = 3;
+        int diasFDS = 1;
+        
+        ld.escolherOpcao(tipo, qntPassageiros, diasUteis, diasFDS);
+        
+        
+        //Tipo do carro - NORMAL OU PREMIUM
+        //Quantidade de passageiros
+        //Datas
+        
         
     }
     

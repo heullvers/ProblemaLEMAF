@@ -67,7 +67,7 @@ public class LocadoraNorthCar extends Locadora{
         
         for (CarroSUVs cn : carrosNormais) {
             
-            System.out.println("Modelo:" + cn.getModelo() + ", " + cn.getValorAluguelTotal());
+            System.out.println("Modelo:" + cn.getModelo());
             
         }
     
@@ -78,7 +78,7 @@ public class LocadoraNorthCar extends Locadora{
         
         for (CarroSUVs cn : carrosPremium) {
             
-            System.out.println("Modelo:" + cn.getModelo() + ", " + cn.getValorAluguelTotal());
+            System.out.println("Modelo:" + cn.getModelo());
             
         }
         

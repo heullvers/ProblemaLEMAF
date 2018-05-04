@@ -71,4 +71,83 @@ public class LocadoraDAO {
         lnc.setCarrosPremium(acs);
     }
     
+    //Tipo do carro - NORMAL OU PREMIUM (string)
+    //Quantidade de passageiros (int)
+    //Datas
+    
+    public void escolherOpcao(String tipo, int qntPassageiros, int diasUteis, int diasFDS){
+        
+        if (qntPassageiros <= 2) {
+            //Esportivo
+            if (tipo.equalsIgnoreCase("normal")) {
+                System.out.println("entrei aqui");
+                double soma = 0;
+                double maiorSemFidelidade = 0;
+                double maiorComFidelidade = 0;
+                for (CarroEsportivo ce: lwc.getCarrosNormais()) {
+                    //sem fidelidade
+                    for (int i = 0; i < diasUteis; i++) {
+                        soma += lwc.taxarMeioDeSemanaRegular(ce);
+                        //System.out.println(ce.getModelo() + " " + soma);
+                    }
+                    for (int i = 0; i < diasFDS; i++) {
+                        soma += lwc.taxarFimDeSemanaRegular(ce);
+                        //System.out.println(ce.getModelo() + " " + soma);
+                    }
+                    
+                    if (soma > maiorSemFidelidade) {
+                        maiorSemFidelidade = soma;
+                    }
+                    //System.out.println(ce.getModelo() + " Valor final " + soma);
+                    soma = 0;   
+                }
+                soma = 0;
+                for (CarroEsportivo ce: lwc.getCarrosNormais()) {
+                    //com fidelidade
+                    for (int i = 0; i < diasUteis; i++) {
+                        soma += lwc.taxarMeioDeSemanaFidelidade(ce);
+                    }
+                    for (int i = 0; i < diasFDS; i++) {
+                        soma += lwc.taxarFimDeSemanaFidelidade(ce);
+                    }
+                    if (soma > maiorComFidelidade) {
+                        maiorComFidelidade = soma;
+                    }
+                    soma = 0;
+                }
+                
+                System.out.println("Preço regular:" + maiorSemFidelidade);
+                System.out.println("Preço com fidelidade:" + maiorComFidelidade);
+   
+            }
+            else{
+            
+            }
+        }
+        else
+            if(qntPassageiros <= 4){
+            //Compactos
+                if (tipo.equalsIgnoreCase("normal")) {
+
+                }
+                else{
+
+                }
+            }
+            else 
+                if(qntPassageiros <= 7){
+                 //SUVs
+                    if (tipo.equalsIgnoreCase("normal")) {
+
+                     }
+                    else{
+
+                    }
+                }
+        else{
+             //Não há automóveis disponíveis com mais de 7 lugares
+        
+        }
+    
+    }
 }

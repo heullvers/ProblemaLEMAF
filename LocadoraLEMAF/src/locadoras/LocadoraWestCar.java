@@ -67,7 +67,7 @@ public class LocadoraWestCar extends Locadora{
         
         for (CarroEsportivo cn : carrosNormais) {
             
-            System.out.println("Modelo:" + cn.getModelo() + ", " + cn.getValorAluguelTotal());
+            System.out.println("Modelo:" + cn.getModelo());
             
         }
     
@@ -78,7 +78,7 @@ public class LocadoraWestCar extends Locadora{
         
         for (CarroEsportivo cn : carrosPremium) {
             
-            System.out.println("Modelo:" + cn.getModelo() + ", " + cn.getValorAluguelTotal());
+            System.out.println("Modelo:" + cn.getModelo());
             
         }
         

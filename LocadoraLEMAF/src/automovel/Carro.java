@@ -16,15 +16,6 @@ public class Carro {
         valorAluguelTotal = 0;
     }
 
-    public void setValorAluguelTotal(double valorAluguelTotal) {
-        this.valorAluguelTotal = valorAluguelTotal;
-    }
-
-    public double getValorAluguelTotal() {
-        return valorAluguelTotal;
-    }
-    
-
     public int getQntPassageiros() {
         return qntPassageiros;
     }
