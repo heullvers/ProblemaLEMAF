@@ -16,6 +16,8 @@ public abstract class Locadora {
     public abstract void taxarFimDeSemanaRegular(Carro c);
     public abstract void taxarMeioDeSemanaFidelidade(Carro c);
     public abstract void taxarFimDeSemanaFidelidade(Carro c);
+    public abstract void exibirCarrosNormais();
+    public abstract void exibirCarrosPremium();
 
     public Locadora(double taxaMeioDeSemanaRegular, double taxaFimDeSemanaRegular, double taxaMeioDeSemanaFidelidade, double taxaFimDeSemanaFidelidade) {
         this.taxaMeioDeSemanaRegular = taxaMeioDeSemanaRegular;

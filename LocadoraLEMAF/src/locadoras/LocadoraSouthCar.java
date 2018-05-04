@@ -68,11 +68,24 @@ public class LocadoraSouthCar extends Locadora{
         
         for (CarroCompacto cn : carrosNormais) {
             
-            System.out.println(cn.getModelo());
+            System.out.println("Modelo:" + cn.getModelo() + ", " + cn.getValorAluguelTotal());
             
         }
     
     }
+
+    @Override
+    public void exibirCarrosPremium() {
+        
+        for (CarroCompacto cn : carrosPremium) {
+            
+            System.out.println("Modelo:" + cn.getModelo() + ", " + cn.getValorAluguelTotal());
+            
+        }
+        
+    }
+    
+    
 
 
    

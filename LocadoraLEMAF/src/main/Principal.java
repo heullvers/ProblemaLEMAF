@@ -15,9 +15,9 @@ public class Principal {
     
     public static void main(String[] args) {
         
-        LocadoraSouthCar lsc = new LocadoraSouthCar(1.1, 2.2, 3.3, 4.4);
-        LocadoraWestCar lwc = new LocadoraWestCar(5.5, 6.6, 7.7, 8.8);
-        LocadoraNorthCar lnc = new LocadoraNorthCar(9.9, 10.1, 11.1, 12.1);
+        LocadoraSouthCar lsc = new LocadoraSouthCar(210, 200, 150, 90);
+        LocadoraWestCar lwc = new LocadoraWestCar(530, 200, 150, 90);
+        LocadoraNorthCar lnc = new LocadoraNorthCar(630, 600, 580, 590);
         
         LocadoraDAO ld = new LocadoraDAO(lsc, lwc, lnc);
         
@@ -26,6 +26,8 @@ public class Principal {
         
         ld.cadastrarCarroNormalSouthCar(cc);
         ld.cadastrarCarroNormalSouthCar(cc2);
+        lsc.taxarFimDeSemanaRegular(cc);
+        lsc.taxarMeioDeSemanaFidelidade(cc2);
         lsc.exibirCarrosNormais();
         
     }

@@ -13,10 +13,15 @@ public class Carro {
         this.modelo = modelo;
         this.qntPassageiros = qntPassageiros;
         this.taxa = taxa;
+        valorAluguelTotal = 0;
     }
 
     public void setValorAluguelTotal(double valorAluguelTotal) {
         this.valorAluguelTotal = valorAluguelTotal;
+    }
+
+    public double getValorAluguelTotal() {
+        return valorAluguelTotal;
     }
     
 

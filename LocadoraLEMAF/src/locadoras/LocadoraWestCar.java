@@ -59,6 +59,25 @@ public class LocadoraWestCar extends Locadora{
         this.carrosPremium = carrosPremium;
     }
     
+    public void exibirCarrosNormais(){
+        
+        for (CarroEsportivo cn : carrosNormais) {
+            
+            System.out.println("Modelo:" + cn.getModelo() + ", " + cn.getValorAluguelTotal());
+            
+        }
     
+    }
+
+    @Override
+    public void exibirCarrosPremium() {
+        
+        for (CarroEsportivo cn : carrosPremium) {
+            
+            System.out.println("Modelo:" + cn.getModelo() + ", " + cn.getValorAluguelTotal());
+            
+        }
+        
+    }
     
 }
