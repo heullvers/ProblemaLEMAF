@@ -11,7 +11,7 @@ public class Escritor {
     
         try {
             
-            FileOutputStream arquivo = new FileOutputStream("arquivodesaida.txt");
+            FileOutputStream arquivo = new FileOutputStream("../Arquivos/arquivodesaida.txt");
             PrintWriter pr = new PrintWriter(arquivo);
             pr.println(vetor[0]);
             pr.println(vetor[1]);

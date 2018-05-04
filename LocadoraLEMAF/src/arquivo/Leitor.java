@@ -29,7 +29,7 @@ public class Leitor {
     
         try {
             
-            FileInputStream arquivo = new FileInputStream("/home/heuller/Documentos/LEMAF/ProblemaLEMAF/LocadoraLEMAF/arquivodeentrada.txt");
+            FileInputStream arquivo = new FileInputStream("/home/heuller/Documentos/LEMAF/ProblemaLEMAF/Arquivos/arquivodeentrada.txt");
             InputStreamReader input = new InputStreamReader(arquivo);
             BufferedReader br = new BufferedReader(input);
             

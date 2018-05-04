@@ -1,4 +1,0 @@
-Carro:Compacto 7: SouthCar
-Preço regular: R$806.4000000000001
-Carro:Compacto 7: SouthCar
-Preço com fidelidade: R$576.0
