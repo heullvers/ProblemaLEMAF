@@ -25,9 +25,10 @@ public class Principal {
         CarroCompacto cc2 = new CarroCompacto("Molinete", 3, 0.2);
         
         ld.cadastrarCarroNormalSouthCar(cc);
-        ld.cadastrarCarroNormalSouthCar(cc2);
+        //ld.cadastrarCarroNormalSouthCar(cc2);
         lsc.taxarFimDeSemanaRegular(cc);
-        lsc.taxarMeioDeSemanaFidelidade(cc2);
+        //lsc.taxarFimDeSemanaRegular(cc);
+        //lsc.taxarMeioDeSemanaFidelidade(cc2);
         lsc.exibirCarrosNormais();
         
     }

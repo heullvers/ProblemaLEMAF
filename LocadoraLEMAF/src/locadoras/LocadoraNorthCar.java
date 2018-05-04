@@ -22,25 +22,25 @@ public class LocadoraNorthCar extends Locadora{
     public void taxarMeioDeSemanaRegular(Carro c) {
         
         CarroSUVs cs = (CarroSUVs)c;
-        cs.setValorAluguelTotal(taxaMeioDeSemanaRegular + (taxaMeioDeSemanaRegular * c.getTaxa()));
+        cs.setValorAluguelTotal(cs.getValorAluguelTotal() + taxaMeioDeSemanaRegular + (taxaMeioDeSemanaRegular * c.getTaxa()));
     }
 
     @Override
     public void taxarFimDeSemanaRegular(Carro c) {
         CarroSUVs cs = (CarroSUVs)c;
-        cs.setValorAluguelTotal(taxaFimDeSemanaRegular + (taxaFimDeSemanaRegular * c.getTaxa()));
+        cs.setValorAluguelTotal(cs.getValorAluguelTotal() + taxaFimDeSemanaRegular + (taxaFimDeSemanaRegular * c.getTaxa()));
     }
     
     @Override
     public void taxarMeioDeSemanaFidelidade(Carro c) {
         CarroSUVs cs = (CarroSUVs)c;
-        cs.setValorAluguelTotal(taxaMeioDeSemanaFidelidade + (taxaMeioDeSemanaFidelidade * c.getTaxa()));
+        cs.setValorAluguelTotal(cs.getValorAluguelTotal() + taxaMeioDeSemanaFidelidade + (taxaMeioDeSemanaFidelidade * c.getTaxa()));
     }
 
     @Override
     public void taxarFimDeSemanaFidelidade(Carro c) {
         CarroSUVs cs = (CarroSUVs)c;
-        cs.setValorAluguelTotal(taxaFimDeSemanaFidelidade + (taxaFimDeSemanaFidelidade * c.getTaxa()));  
+        cs.setValorAluguelTotal(cs.getValorAluguelTotal() + taxaFimDeSemanaFidelidade + (taxaFimDeSemanaFidelidade * c.getTaxa()));  
     }
 
     public ArrayList<CarroSUVs> getCarrosNormais() {
