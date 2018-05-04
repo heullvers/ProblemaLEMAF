@@ -9,6 +9,7 @@ public class CarroCompacto extends Carro{
     }
 
     public CarroCompacto() {
+        
     }
     
     

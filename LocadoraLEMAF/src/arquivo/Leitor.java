@@ -11,9 +11,17 @@ import java.nio.file.Paths;
 public class Leitor {
     
     private Search procura;
+    private String tipo;
+    private int qntPassageiros;
+    private int diasUteis;
+    private int diasFDS;
 
     public Leitor() {
         procura = new Search();
+        tipo = "";
+        qntPassageiros = 0;
+        diasUteis = 0;
+        diasFDS = 0;
     }
     
     
@@ -40,11 +48,13 @@ public class Leitor {
                 
             } while (linha != null);
             
-            String tipo = palavras[0];
-            int qntPassageiros = Integer.parseInt(palavras[1]);
+            tipo = palavras[0];
+            qntPassageiros = Integer.parseInt(palavras[1]);
             procura.buscarPalavra(palavras[2]);
-            int diasUteis = procura.getDiasUteis();
-            int diasFDS = procura.getDiasFDS();
+            diasUteis = procura.getDiasUteis();
+            diasFDS = procura.getDiasFDS();
+            System.out.println("Tipo: " + tipo);
+            System.out.println("Qnt Passageiros: " + qntPassageiros);
             System.out.println("Dias Uteis: " + diasUteis);
             System.out.println("Dias FDS: " + diasFDS);
             
@@ -56,5 +66,24 @@ public class Leitor {
         }
     
     }
+
+    public int getDiasUteis() {
+        return diasUteis;
+    }
+
+    public int getDiasFDS() {
+        return diasFDS;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public int getQntPassageiros() {
+        return qntPassageiros;
+    }
+    
+    
+    
     
 }

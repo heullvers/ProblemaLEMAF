@@ -18,7 +18,7 @@ public class Search {
     public void buscarPalavra(String linha){
  
         Search sr = new Search();
-        linha = linha.replaceAll("[,.]", "");
+        linha = linha.replaceAll("[,.]", " ");
         linha = linha.trim();
         String[] palavras = linha.split(" ");
         for (String palavra : palavras) {

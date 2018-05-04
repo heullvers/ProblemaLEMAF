@@ -10,17 +10,99 @@ import locadoras.LocadoraSouthCar;
 import locadoras.LocadoraWestCar;
 
 
-public class LocadoraDAO {
+public final class LocadoraDAO {
 
     public LocadoraDAO(LocadoraSouthCar lsc, LocadoraWestCar lwc, LocadoraNorthCar lnc) {
         this.lsc = lsc;
         this.lwc = lwc;
         this.lnc = lnc;
+        
+        //CARROS INSERIDOS NO SISTEMA
+        
+        //CARROS NORMAIS DA SOUTHCAR
+        CarroCompacto cc = new CarroCompacto("Compacto", 3, 0.1);
+        CarroCompacto cc2 = new CarroCompacto("Compacto 2", 3, 0.2);
+        CarroCompacto cc3 = new CarroCompacto("Compacto 3", 3, 0.15);
+        CarroCompacto cc4 = new CarroCompacto("Compacto 4", 4, 0.16);
+        CarroCompacto cc5 = new CarroCompacto("Compacto 5", 4, 0.14);
+        
+        cadastrarCarroNormalSouthCar(cc);
+        cadastrarCarroNormalSouthCar(cc2);
+        cadastrarCarroNormalSouthCar(cc3);
+        cadastrarCarroNormalSouthCar(cc4);
+        cadastrarCarroNormalSouthCar(cc5);
+        
+        //CARROS PREMIUM DA SOUTHCAR
+        CarroCompacto cc6 = new CarroCompacto("Compacto 6", 3, 0.3);
+        CarroCompacto cc7 = new CarroCompacto("Compacto 7", 3, 0.4);
+        CarroCompacto cc8 = new CarroCompacto("Compacto 8", 3, 0.35);
+        CarroCompacto cc9 = new CarroCompacto("Compacto 9", 4, 0.5);
+        CarroCompacto cc10 = new CarroCompacto("Compacto 10", 4, 0.27);
+        
+        cadastrarCarroPremiumSouthCar(cc6);
+        cadastrarCarroPremiumSouthCar(cc7);
+        cadastrarCarroPremiumSouthCar(cc8);
+        cadastrarCarroPremiumSouthCar(cc9);
+        cadastrarCarroPremiumSouthCar(cc10);
+        
+        //CARROS NORMAIS DA WESTCAR
+        CarroEsportivo ce = new CarroEsportivo("Esportivo", 2, 0.1);
+        CarroEsportivo ce2 = new CarroEsportivo("Esportivo 2", 1, 0.2);
+        CarroEsportivo ce3 = new CarroEsportivo("Esportivo 3", 2, 0.15);
+        CarroEsportivo ce4 = new CarroEsportivo("Esportivo 4", 1, 0.16);
+        CarroEsportivo ce5 = new CarroEsportivo("Esportivo 5", 2, 0.14);
+        
+        cadastrarCarroNormalWestCar(ce);
+        cadastrarCarroNormalWestCar(ce2);
+        cadastrarCarroNormalWestCar(ce3);
+        cadastrarCarroNormalWestCar(ce4);
+        cadastrarCarroNormalWestCar(ce5);
+        
+        //CARROS PREMIUM DA WESTCAR
+        CarroEsportivo ce6 = new CarroEsportivo("Esportivo 6", 2, 0.3);
+        CarroEsportivo ce7 = new CarroEsportivo("Esportivo 7", 1, 0.4);
+        CarroEsportivo ce8 = new CarroEsportivo("Esportivo 8", 2, 0.35);
+        CarroEsportivo ce9 = new CarroEsportivo("Esportivo 9", 1, 0.5);
+        CarroEsportivo ce10 = new CarroEsportivo("Esportivo 10", 2, 0.27);
+        
+        cadastrarCarroPremiumWestCar(ce6);
+        cadastrarCarroPremiumWestCar(ce7);
+        cadastrarCarroPremiumWestCar(ce8);
+        cadastrarCarroPremiumWestCar(ce9);
+        cadastrarCarroPremiumWestCar(ce10);
+        
+        //CARROS NORMAIS DA NORTHCAR
+        CarroSUVs cs = new CarroSUVs("SUV", 5, 0.1);
+        CarroSUVs cs2 = new CarroSUVs("SUV 2", 6, 0.2);
+        CarroSUVs cs3 = new CarroSUVs("SUV 3", 7, 0.15);
+        CarroSUVs cs4 = new CarroSUVs("SUV 4", 5, 0.16);
+        CarroSUVs cs5 = new CarroSUVs("SUV 5", 7, 0.14);
+        
+        cadastrarCarroNormalNorthCar(cs);
+        cadastrarCarroNormalNorthCar(cs2);
+        cadastrarCarroNormalNorthCar(cs3);
+        cadastrarCarroNormalNorthCar(cs4);
+        cadastrarCarroNormalNorthCar(cs5);
+        
+
+        //CARROS PREMIUM DA NORTHCAR
+        CarroSUVs cs6 = new CarroSUVs("SUV 6", 5, 0.3);
+        CarroSUVs cs7 = new CarroSUVs("SUV 7", 6, 0.4);
+        CarroSUVs cs8 = new CarroSUVs("SUV 8", 7, 0.35);
+        CarroSUVs cs9 = new CarroSUVs("SUV 9", 5, 0.5);
+        CarroSUVs cs10 = new CarroSUVs("SUV 10", 7, 0.27);
+        
+        cadastrarCarroPremiumNorthCar(cs6);
+        cadastrarCarroPremiumNorthCar(cs7);
+        cadastrarCarroPremiumNorthCar(cs8);
+        cadastrarCarroPremiumNorthCar(cs9);
+        cadastrarCarroPremiumNorthCar(cs10);
+        
     }
 
-    private LocadoraSouthCar lsc; 
-    private LocadoraWestCar lwc; 
-    private LocadoraNorthCar lnc; 
+    private final LocadoraSouthCar lsc; 
+    private final LocadoraWestCar lwc; 
+    private final LocadoraNorthCar lnc; 
     
     public void cadastrarCarroNormalSouthCar(CarroCompacto cc){
         

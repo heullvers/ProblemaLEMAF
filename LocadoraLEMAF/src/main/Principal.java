@@ -22,6 +22,15 @@ public class Principal {
         LocadoraNorthCar lnc = new LocadoraNorthCar(630, 600, 580, 590);
         
         LocadoraDAO ld = new LocadoraDAO(lsc, lwc, lnc);
+        
+        Leitor l = new Leitor();
+        l.lerArquivo();
+        String tipo = l.getTipo();
+        int qntPassageiros = l.getQntPassageiros();
+        int diasUteis = l.getDiasUteis();
+        int diasFDS = l.getDiasFDS();
+        
+        ld.escolherOpcao(tipo, qntPassageiros, diasUteis, diasFDS);
     
         /*
         //CARROS WESTCAR
@@ -93,22 +102,15 @@ public class Principal {
         ld.cadastrarCarroPremiumNorthCar(cs5);
 
         */
+
         
-        //dados do arquivo
-        /*
-        String tipo = "premium";
-        int qntPassageiros = 5;
-        int diasUteis = 3;
-        int diasFDS = 1;
         
-        ld.escolherOpcao(tipo, qntPassageiros, diasUteis, diasFDS);
-        */
         
         //Tipo do carro - NORMAL OU PREMIUM
         //Quantidade de passageiros
         //Datas
-        Leitor l = new Leitor();
-        l.lerArquivo();
+        
+        
         
         
     }
