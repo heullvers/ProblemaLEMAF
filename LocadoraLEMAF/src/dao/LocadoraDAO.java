@@ -80,6 +80,7 @@ public class LocadoraDAO {
         if (qntPassageiros <= 2) {
             //Esportivo
             if (tipo.equalsIgnoreCase("normal")) {
+                System.out.println("NORMAL ESPORTIVO");
                 double soma = 0;
                 double menorSemFidelidade = Integer.MAX_VALUE;
                 double menorComFidelidade = Integer.MAX_VALUE;
@@ -125,32 +126,268 @@ public class LocadoraDAO {
                 System.out.println("Carro:" + carroMenorCustoComFidelidade.getModelo()+" Preço com fidelidade:" + menorComFidelidade);
    
             }
+            else
+                if (tipo.equalsIgnoreCase("premium")) {
+                    System.out.println("PREMIUM ESPORTIVO");
+                    double soma = 0;
+                    double menorSemFidelidade = Integer.MAX_VALUE;
+                    double menorComFidelidade = Integer.MAX_VALUE;
+                    CarroEsportivo carroMenorCustoSemFidelidade = new CarroEsportivo();
+                    CarroEsportivo carroMenorCustoComFidelidade = new CarroEsportivo();
+
+                    //sem fidelidade
+                    for (CarroEsportivo ce: lwc.getCarrosPremium()) {
+
+                        for (int i = 0; i < diasUteis; i++) {
+                            soma += lwc.taxarMeioDeSemanaRegular(ce);
+                        }
+                        for (int i = 0; i < diasFDS; i++) {
+                            soma += lwc.taxarFimDeSemanaRegular(ce);
+                        }
+                        System.out.println(ce.getModelo() + " " + soma);
+                        if (soma < menorSemFidelidade) {
+                            menorSemFidelidade = soma;
+                            carroMenorCustoSemFidelidade = ce;
+                        }
+                        soma = 0;   
+                    }
+
+                    //com fidelidade
+
+                    for (CarroEsportivo ce: lwc.getCarrosPremium()) {
+
+                        for (int i = 0; i < diasUteis; i++) {
+                            soma += lwc.taxarMeioDeSemanaFidelidade(ce);
+                        }
+                        for (int i = 0; i < diasFDS; i++) {
+                            soma += lwc.taxarFimDeSemanaFidelidade(ce);
+                        }
+                        if (soma < menorComFidelidade) {
+                            menorComFidelidade = soma;
+                            carroMenorCustoComFidelidade = ce;
+
+                        }
+                        soma = 0;
+                    }
+
+                    System.out.println("Carro:" + carroMenorCustoSemFidelidade.getModelo()+" Preço regular:" + menorSemFidelidade);
+                    System.out.println("Carro:" + carroMenorCustoComFidelidade.getModelo()+" Preço com fidelidade:" + menorComFidelidade);      
+            }
             else{
-            
+                
+                    //Tipo de carro não encontrado
+                
             }
         }
         else
             if(qntPassageiros <= 4){
+                
             //Compactos
                 if (tipo.equalsIgnoreCase("normal")) {
+                    System.out.println("NORMAL COMPACTO");
+                    double soma = 0;
+                    double menorSemFidelidade = Integer.MAX_VALUE;
+                    double menorComFidelidade = Integer.MAX_VALUE;
+                    CarroCompacto carroMenorCustoSemFidelidade = new CarroCompacto();
+                    CarroCompacto carroMenorCustoComFidelidade = new CarroCompacto();
 
+                    //sem fidelidade
+                    for (CarroCompacto ce: lsc.getCarrosNormais()) {
+
+                        for (int i = 0; i < diasUteis; i++) {
+                            soma += lsc.taxarMeioDeSemanaRegular(ce);
+                        }
+                        for (int i = 0; i < diasFDS; i++) {
+                            soma += lsc.taxarFimDeSemanaRegular(ce);
+                        }
+                        System.out.println(ce.getModelo() + " " + soma);
+                        if (soma < menorSemFidelidade) {
+                            menorSemFidelidade = soma;
+                            carroMenorCustoSemFidelidade = ce;
+                        }
+                        soma = 0;   
+                    }
+
+                    //com fidelidade
+
+                    for (CarroCompacto ce: lsc.getCarrosNormais()) {
+
+                        for (int i = 0; i < diasUteis; i++) {
+                            soma += lsc.taxarMeioDeSemanaFidelidade(ce);
+                        }
+                        for (int i = 0; i < diasFDS; i++) {
+                            soma += lsc.taxarFimDeSemanaFidelidade(ce);
+                        }
+                        if (soma < menorComFidelidade) {
+                            menorComFidelidade = soma;
+                            carroMenorCustoComFidelidade = ce;
+
+                        }
+                        soma = 0;
+                    }
+
+                    System.out.println("Carro:" + carroMenorCustoSemFidelidade.getModelo()+" Preço regular:" + menorSemFidelidade);
+                    System.out.println("Carro:" + carroMenorCustoComFidelidade.getModelo()+" Preço com fidelidade:" + menorComFidelidade);
+                    
                 }
-                else{
+                else
+                    if (tipo.equalsIgnoreCase("premium")) {
+                        System.out.println("PREMIUM COMPACTO");
+                        double soma = 0;
+                        double menorSemFidelidade = Integer.MAX_VALUE;
+                        double menorComFidelidade = Integer.MAX_VALUE;
+                        CarroCompacto carroMenorCustoSemFidelidade = new CarroCompacto();
+                        CarroCompacto carroMenorCustoComFidelidade = new CarroCompacto();
 
+                        //sem fidelidade
+                        for (CarroCompacto ce: lsc.getCarrosPremium()) {
+
+                            for (int i = 0; i < diasUteis; i++) {
+                                soma += lsc.taxarMeioDeSemanaRegular(ce);
+                            }
+                            for (int i = 0; i < diasFDS; i++) {
+                                soma += lsc.taxarFimDeSemanaRegular(ce);
+                            }
+                            System.out.println(ce.getModelo() + " " + soma);
+                            if (soma < menorSemFidelidade) {
+                                menorSemFidelidade = soma;
+                                carroMenorCustoSemFidelidade = ce;
+                            }
+                            soma = 0;   
+                        }
+
+                        //com fidelidade
+
+                        for (CarroCompacto ce: lsc.getCarrosPremium()) {
+
+                            for (int i = 0; i < diasUteis; i++) {
+                                soma += lsc.taxarMeioDeSemanaFidelidade(ce);
+                            }
+                            for (int i = 0; i < diasFDS; i++) {
+                                soma += lsc.taxarFimDeSemanaFidelidade(ce);
+                            }
+                            if (soma < menorComFidelidade) {
+                                menorComFidelidade = soma;
+                                carroMenorCustoComFidelidade = ce;
+
+                            }
+                            soma = 0;
+                        }
+
+                        System.out.println("Carro:" + carroMenorCustoSemFidelidade.getModelo()+" Preço regular:" + menorSemFidelidade);
+                        System.out.println("Carro:" + carroMenorCustoComFidelidade.getModelo()+" Preço com fidelidade:" + menorComFidelidade);
+                    }
+                else{
+                
+                    //Tipo de carro não encontrado
+                
                 }
             }
             else 
                 if(qntPassageiros <= 7){
+                    
                  //SUVs
                     if (tipo.equalsIgnoreCase("normal")) {
+                        System.out.println("NORMAL SUV");
+                        double soma = 0;
+                        double menorSemFidelidade = Integer.MAX_VALUE;
+                        double menorComFidelidade = Integer.MAX_VALUE;
+                        CarroSUVs carroMenorCustoSemFidelidade = new CarroSUVs();
+                        CarroSUVs carroMenorCustoComFidelidade = new CarroSUVs();
 
+                        //sem fidelidade
+                        for (CarroSUVs ce: lnc.getCarrosNormais()) {
+
+                            for (int i = 0; i < diasUteis; i++) {
+                                soma += lnc.taxarMeioDeSemanaRegular(ce);
+                            }
+                            for (int i = 0; i < diasFDS; i++) {
+                                soma += lnc.taxarFimDeSemanaRegular(ce);
+                            }
+                            System.out.println(ce.getModelo() + " " + soma);
+                            if (soma < menorSemFidelidade) {
+                                menorSemFidelidade = soma;
+                                carroMenorCustoSemFidelidade = ce;
+                            }
+                            soma = 0;   
+                        }
+
+                        //com fidelidade
+
+                        for (CarroSUVs ce: lnc.getCarrosNormais()) {
+
+                            for (int i = 0; i < diasUteis; i++) {
+                                soma += lnc.taxarMeioDeSemanaFidelidade(ce);
+                            }
+                            for (int i = 0; i < diasFDS; i++) {
+                                soma += lnc.taxarFimDeSemanaFidelidade(ce);
+                            }
+                            if (soma < menorComFidelidade) {
+                                menorComFidelidade = soma;
+                                carroMenorCustoComFidelidade = ce;
+
+                            }
+                            soma = 0;
+                        }
+
+                        System.out.println("Carro:" + carroMenorCustoSemFidelidade.getModelo()+" Preço regular:" + menorSemFidelidade);
+                        System.out.println("Carro:" + carroMenorCustoComFidelidade.getModelo()+" Preço com fidelidade:" + menorComFidelidade);
                      }
-                    else{
+                    else
+                        if (tipo.equalsIgnoreCase("premium")) {
+                            System.out.println("PREMIUM SUV");
+                            
+                            double soma = 0;
+                            double menorSemFidelidade = Integer.MAX_VALUE;
+                            double menorComFidelidade = Integer.MAX_VALUE;
+                            CarroSUVs carroMenorCustoSemFidelidade = new CarroSUVs();
+                            CarroSUVs carroMenorCustoComFidelidade = new CarroSUVs();
 
+                            //sem fidelidade
+                            for (CarroSUVs ce: lnc.getCarrosPremium()) {
+
+                                for (int i = 0; i < diasUteis; i++) {
+                                    soma += lnc.taxarMeioDeSemanaRegular(ce);
+                                }
+                                for (int i = 0; i < diasFDS; i++) {
+                                    soma += lnc.taxarFimDeSemanaRegular(ce);
+                                }
+                                System.out.println(ce.getModelo() + " " + soma);
+                                if (soma < menorSemFidelidade) {
+                                    menorSemFidelidade = soma;
+                                    carroMenorCustoSemFidelidade = ce;
+                                }
+                                soma = 0;   
+                            }
+
+                            //com fidelidade
+
+                            for (CarroSUVs ce: lnc.getCarrosPremium()) {
+
+                                for (int i = 0; i < diasUteis; i++) {
+                                    soma += lnc.taxarMeioDeSemanaFidelidade(ce);
+                                }
+                                for (int i = 0; i < diasFDS; i++) {
+                                    soma += lnc.taxarFimDeSemanaFidelidade(ce);
+                                }
+                                if (soma < menorComFidelidade) {
+                                    menorComFidelidade = soma;
+                                    carroMenorCustoComFidelidade = ce;
+
+                                }
+                                soma = 0;
+                            }
+
+                            System.out.println("Carro:" + carroMenorCustoSemFidelidade.getModelo()+" Preço regular:" + menorSemFidelidade);
+                            System.out.println("Carro:" + carroMenorCustoComFidelidade.getModelo()+" Preço com fidelidade:" + menorComFidelidade);
+                        }
+                    else{
+                
+                        //Tipo de carro não encontrado
                     }
                 }
         else{
-             //Não há automóveis disponíveis com mais de 7 lugares
+                //Não há automóveis disponíveis com mais de 7 lugares
         
         }
     
