@@ -1,6 +1,7 @@
 
 package dao;
 
+import arquivo.Escritor;
 import arquivo.Leitor;
 import automovel.CarroCompacto;
 import automovel.CarroEsportivo;
@@ -13,13 +14,13 @@ import locadoras.LocadoraWestCar;
 
 public final class LocadoraDAO {
     
-    private Leitor leitura;
+    private Escritor escrita;
 
     public LocadoraDAO(LocadoraSouthCar lsc, LocadoraWestCar lwc, LocadoraNorthCar lnc) {
         this.lsc = lsc;
         this.lwc = lwc;
         this.lnc = lnc;
-        leitura = new Leitor();
+        escrita = new Escritor();
         
         //CARROS INSERIDOS NO SISTEMA
         
@@ -167,7 +168,6 @@ public final class LocadoraDAO {
         if (qntPassageiros <= 2) {
             //Esportivo
             if (tipo.equalsIgnoreCase("normal")) {
-                System.out.println("NORMAL ESPORTIVO");
                 double soma = 0;
                 double menorSemFidelidade = Integer.MAX_VALUE;
                 double menorComFidelidade = Integer.MAX_VALUE;
@@ -183,7 +183,6 @@ public final class LocadoraDAO {
                     for (int i = 0; i < diasFDS; i++) {
                         soma += lwc.taxarFimDeSemanaRegular(ce);
                     }
-                    System.out.println(ce.getModelo() + " " + soma);
                     if (soma < menorSemFidelidade) {
                         menorSemFidelidade = soma;
                         carroMenorCustoSemFidelidade = ce;
@@ -209,16 +208,17 @@ public final class LocadoraDAO {
                     soma = 0;
                 }
                 
-                System.out.println("Carro:" + carroMenorCustoSemFidelidade.getModelo()+": WestCar");
-                System.out.println("Preço regular:" + menorSemFidelidade);       
-                System.out.println("Carro:" + carroMenorCustoComFidelidade.getModelo()+": WestCar");
-                System.out.println("Preço com fidelidade:" + menorComFidelidade);
+                String[] linhas = new String[4];
+                linhas[0] = "Carro:" + carroMenorCustoSemFidelidade.getModelo()+": WestCar";
+                linhas[1] = "Preço regular: R$" + menorSemFidelidade;
+                linhas[2] = "Carro:" + carroMenorCustoComFidelidade.getModelo()+": WestCar";
+                linhas[3] = "Preço com fidelidade: R$" + menorComFidelidade;
+                escrita.escreverArquivo(linhas);
    
             }
             
             else
                 if (tipo.equalsIgnoreCase("premium")) {
-                    System.out.println("PREMIUM ESPORTIVO");
                     double soma = 0;
                     double menorSemFidelidade = Integer.MAX_VALUE;
                     double menorComFidelidade = Integer.MAX_VALUE;
@@ -234,7 +234,6 @@ public final class LocadoraDAO {
                         for (int i = 0; i < diasFDS; i++) {
                             soma += lwc.taxarFimDeSemanaRegular(ce);
                         }
-                        System.out.println(ce.getModelo() + " " + soma);
                         if (soma < menorSemFidelidade) {
                             menorSemFidelidade = soma;
                             carroMenorCustoSemFidelidade = ce;
@@ -260,10 +259,12 @@ public final class LocadoraDAO {
                         soma = 0;
                     }
 
-                    System.out.println("Carro:" + carroMenorCustoSemFidelidade.getModelo()+": WestCar");
-                    System.out.println("Preço regular:" + menorSemFidelidade);       
-                    System.out.println("Carro:" + carroMenorCustoComFidelidade.getModelo()+": WestCar");
-                    System.out.println("Preço com fidelidade:" + menorComFidelidade);      
+                   String[] linhas = new String[4];
+                   linhas[0] = "Carro:" + carroMenorCustoSemFidelidade.getModelo()+": WestCar";
+                   linhas[1] = "Preço regular: R$" + menorSemFidelidade;
+                   linhas[2] = "Carro:" + carroMenorCustoComFidelidade.getModelo()+": WestCar";
+                   linhas[3] = "Preço com fidelidade: R$" + menorComFidelidade;
+                   escrita.escreverArquivo(linhas);     
             }
             else{
                 
@@ -276,7 +277,6 @@ public final class LocadoraDAO {
                 
             //Compactos
                 if (tipo.equalsIgnoreCase("normal")) {
-                    System.out.println("NORMAL COMPACTO");
                     double soma = 0;
                     double menorSemFidelidade = Integer.MAX_VALUE;
                     double menorComFidelidade = Integer.MAX_VALUE;
@@ -292,7 +292,6 @@ public final class LocadoraDAO {
                         for (int i = 0; i < diasFDS; i++) {
                             soma += lsc.taxarFimDeSemanaRegular(ce);
                         }
-                        System.out.println(ce.getModelo() + " " + soma);
                         if (soma < menorSemFidelidade) {
                             menorSemFidelidade = soma;
                             carroMenorCustoSemFidelidade = ce;
@@ -318,15 +317,16 @@ public final class LocadoraDAO {
                         soma = 0;
                     }
 
-                    System.out.println("Carro:" + carroMenorCustoSemFidelidade.getModelo()+": SouthCar");
-                            System.out.println("Preço regular:" + menorSemFidelidade);       
-                            System.out.println("Carro:" + carroMenorCustoComFidelidade.getModelo()+": SoutthCar");
-                            System.out.println("Preço com fidelidade:" + menorComFidelidade);
+                    String[] linhas = new String[4];
+                    linhas[0] = "Carro:" + carroMenorCustoSemFidelidade.getModelo()+": SouthCar";
+                    linhas[1] = "Preço regular: R$" + menorSemFidelidade;
+                    linhas[2] = "Carro:" + carroMenorCustoComFidelidade.getModelo()+": SouthCar";
+                    linhas[3] = "Preço com fidelidade: R$" + menorComFidelidade;
+                    escrita.escreverArquivo(linhas);
                     
                 }
                 else
                     if (tipo.equalsIgnoreCase("premium")) {
-                        System.out.println("PREMIUM COMPACTO");
                         double soma = 0;
                         double menorSemFidelidade = Integer.MAX_VALUE;
                         double menorComFidelidade = Integer.MAX_VALUE;
@@ -342,7 +342,6 @@ public final class LocadoraDAO {
                             for (int i = 0; i < diasFDS; i++) {
                                 soma += lsc.taxarFimDeSemanaRegular(ce);
                             }
-                            System.out.println(ce.getModelo() + " " + soma);
                             if (soma < menorSemFidelidade) {
                                 menorSemFidelidade = soma;
                                 carroMenorCustoSemFidelidade = ce;
@@ -367,11 +366,13 @@ public final class LocadoraDAO {
                             }
                             soma = 0;
                         }
-
-                        System.out.println("Carro:" + carroMenorCustoSemFidelidade.getModelo()+": SouthCar");
-                            System.out.println("Preço regular:" + menorSemFidelidade);       
-                            System.out.println("Carro:" + carroMenorCustoComFidelidade.getModelo()+": SouthCar");
-                            System.out.println("Preço com fidelidade:" + menorComFidelidade);
+                        
+                         String[] linhas = new String[4];
+                         linhas[0] = "Carro:" + carroMenorCustoSemFidelidade.getModelo()+": SouthCar";
+                         linhas[1] = "Preço regular: R$" + menorSemFidelidade;
+                         linhas[2] = "Carro:" + carroMenorCustoComFidelidade.getModelo()+": SouthCar";
+                         linhas[3] = "Preço com fidelidade: R$" + menorComFidelidade;
+                         escrita.escreverArquivo(linhas);
                     }
                 else{
                 
@@ -384,7 +385,6 @@ public final class LocadoraDAO {
                     
                  //SUVs
                     if (tipo.equalsIgnoreCase("normal")) {
-                        System.out.println("NORMAL SUV");
                         double soma = 0;
                         double menorSemFidelidade = Integer.MAX_VALUE;
                         double menorComFidelidade = Integer.MAX_VALUE;
@@ -400,7 +400,6 @@ public final class LocadoraDAO {
                             for (int i = 0; i < diasFDS; i++) {
                                 soma += lnc.taxarFimDeSemanaRegular(ce);
                             }
-                            System.out.println(ce.getModelo() + " " + soma);
                             if (soma < menorSemFidelidade) {
                                 menorSemFidelidade = soma;
                                 carroMenorCustoSemFidelidade = ce;
@@ -426,14 +425,15 @@ public final class LocadoraDAO {
                             soma = 0;
                         }
 
-                        System.out.println("Carro:" + carroMenorCustoSemFidelidade.getModelo()+": NorthCar");
-                        System.out.println("Preço regular:" + menorSemFidelidade);       
-                        System.out.println("Carro:" + carroMenorCustoComFidelidade.getModelo()+": NorthCar");
-                        System.out.println("Preço com fidelidade:" + menorComFidelidade);
+                        String[] linhas = new String[4];
+                        linhas[0] = "Carro:" + carroMenorCustoSemFidelidade.getModelo()+": NorthCar";
+                        linhas[1] = "Preço regular: R$" + menorSemFidelidade;
+                        linhas[2] = "Carro:" + carroMenorCustoComFidelidade.getModelo()+": NorthCar";
+                        linhas[3] = "Preço com fidelidade: R$" + menorComFidelidade;
+                        escrita.escreverArquivo(linhas);
                      }
                     else
                         if (tipo.equalsIgnoreCase("premium")) {
-                            System.out.println("PREMIUM SUV");
                             
                             double soma = 0;
                             double menorSemFidelidade = Integer.MAX_VALUE;
@@ -450,7 +450,6 @@ public final class LocadoraDAO {
                                 for (int i = 0; i < diasFDS; i++) {
                                     soma += lnc.taxarFimDeSemanaRegular(ce);
                                 }
-                                System.out.println(ce.getModelo() + " " + soma);
                                 if (soma < menorSemFidelidade) {
                                     menorSemFidelidade = soma;
                                     carroMenorCustoSemFidelidade = ce;
@@ -475,11 +474,14 @@ public final class LocadoraDAO {
                                 }
                                 soma = 0;
                             }
-
-                            System.out.println("Carro:" + carroMenorCustoSemFidelidade.getModelo()+": NorthCar");
-                            System.out.println("Preço regular:" + menorSemFidelidade);       
-                            System.out.println("Carro:" + carroMenorCustoComFidelidade.getModelo()+": NorthCar");
-                            System.out.println("Preço com fidelidade:" + menorComFidelidade);
+                            
+                            String[] linhas = new String[4];
+                            linhas[0] = "Carro:" + carroMenorCustoSemFidelidade.getModelo()+": NorthCar";
+                            linhas[1] = "Preço regular: R$" + menorSemFidelidade;
+                            linhas[2] = "Carro:" + carroMenorCustoComFidelidade.getModelo()+": NorthCar";
+                            linhas[3] = "Preço com fidelidade: R$" + menorComFidelidade;
+                            escrita.escreverArquivo(linhas);
+                            
                         }
                         else{
                         
