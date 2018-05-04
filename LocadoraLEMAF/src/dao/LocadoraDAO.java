@@ -1,6 +1,7 @@
 
 package dao;
 
+import arquivo.Leitor;
 import automovel.CarroCompacto;
 import automovel.CarroEsportivo;
 import automovel.CarroSUVs;
@@ -11,19 +12,22 @@ import locadoras.LocadoraWestCar;
 
 
 public final class LocadoraDAO {
+    
+    private Leitor leitura;
 
     public LocadoraDAO(LocadoraSouthCar lsc, LocadoraWestCar lwc, LocadoraNorthCar lnc) {
         this.lsc = lsc;
         this.lwc = lwc;
         this.lnc = lnc;
+        leitura = new Leitor();
         
         //CARROS INSERIDOS NO SISTEMA
         
         //CARROS NORMAIS DA SOUTHCAR
-        CarroCompacto cc = new CarroCompacto("Compacto", 3, 0.1);
+        CarroCompacto cc = new CarroCompacto("Compacto", 3, 0.19);
         CarroCompacto cc2 = new CarroCompacto("Compacto 2", 3, 0.2);
-        CarroCompacto cc3 = new CarroCompacto("Compacto 3", 3, 0.15);
-        CarroCompacto cc4 = new CarroCompacto("Compacto 4", 4, 0.16);
+        CarroCompacto cc3 = new CarroCompacto("Compacto 3", 3, 0.16);
+        CarroCompacto cc4 = new CarroCompacto("Compacto 4", 4, 0.13);
         CarroCompacto cc5 = new CarroCompacto("Compacto 5", 4, 0.14);
         
         cadastrarCarroNormalSouthCar(cc);
@@ -33,11 +37,11 @@ public final class LocadoraDAO {
         cadastrarCarroNormalSouthCar(cc5);
         
         //CARROS PREMIUM DA SOUTHCAR
-        CarroCompacto cc6 = new CarroCompacto("Compacto 6", 3, 0.3);
-        CarroCompacto cc7 = new CarroCompacto("Compacto 7", 3, 0.4);
+        CarroCompacto cc6 = new CarroCompacto("Compacto 6", 3, 0.32);
+        CarroCompacto cc7 = new CarroCompacto("Compacto 7", 3, 0.28);
         CarroCompacto cc8 = new CarroCompacto("Compacto 8", 3, 0.35);
         CarroCompacto cc9 = new CarroCompacto("Compacto 9", 4, 0.5);
-        CarroCompacto cc10 = new CarroCompacto("Compacto 10", 4, 0.27);
+        CarroCompacto cc10 = new CarroCompacto("Compacto 10", 4, 0.29);
         
         cadastrarCarroPremiumSouthCar(cc6);
         cadastrarCarroPremiumSouthCar(cc7);
@@ -46,11 +50,11 @@ public final class LocadoraDAO {
         cadastrarCarroPremiumSouthCar(cc10);
         
         //CARROS NORMAIS DA WESTCAR
-        CarroEsportivo ce = new CarroEsportivo("Esportivo", 2, 0.1);
-        CarroEsportivo ce2 = new CarroEsportivo("Esportivo 2", 1, 0.2);
-        CarroEsportivo ce3 = new CarroEsportivo("Esportivo 3", 2, 0.15);
-        CarroEsportivo ce4 = new CarroEsportivo("Esportivo 4", 1, 0.16);
-        CarroEsportivo ce5 = new CarroEsportivo("Esportivo 5", 2, 0.14);
+        CarroEsportivo ce = new CarroEsportivo("Esportivo", 2, 0.18);
+        CarroEsportivo ce2 = new CarroEsportivo("Esportivo 2", 1, 0.15);
+        CarroEsportivo ce3 = new CarroEsportivo("Esportivo 3", 2, 0.17);
+        CarroEsportivo ce4 = new CarroEsportivo("Esportivo 4", 1, 0.13);
+        CarroEsportivo ce5 = new CarroEsportivo("Esportivo 5", 2, 0.19);
         
         cadastrarCarroNormalWestCar(ce);
         cadastrarCarroNormalWestCar(ce2);
@@ -59,11 +63,11 @@ public final class LocadoraDAO {
         cadastrarCarroNormalWestCar(ce5);
         
         //CARROS PREMIUM DA WESTCAR
-        CarroEsportivo ce6 = new CarroEsportivo("Esportivo 6", 2, 0.3);
+        CarroEsportivo ce6 = new CarroEsportivo("Esportivo 6", 2, 0.32);
         CarroEsportivo ce7 = new CarroEsportivo("Esportivo 7", 1, 0.4);
-        CarroEsportivo ce8 = new CarroEsportivo("Esportivo 8", 2, 0.35);
-        CarroEsportivo ce9 = new CarroEsportivo("Esportivo 9", 1, 0.5);
-        CarroEsportivo ce10 = new CarroEsportivo("Esportivo 10", 2, 0.27);
+        CarroEsportivo ce8 = new CarroEsportivo("Esportivo 8", 2, 0.31);
+        CarroEsportivo ce9 = new CarroEsportivo("Esportivo 9", 1, 0.52);
+        CarroEsportivo ce10 = new CarroEsportivo("Esportivo 10", 2, 0.35);
         
         cadastrarCarroPremiumWestCar(ce6);
         cadastrarCarroPremiumWestCar(ce7);
@@ -72,11 +76,11 @@ public final class LocadoraDAO {
         cadastrarCarroPremiumWestCar(ce10);
         
         //CARROS NORMAIS DA NORTHCAR
-        CarroSUVs cs = new CarroSUVs("SUV", 5, 0.1);
-        CarroSUVs cs2 = new CarroSUVs("SUV 2", 6, 0.2);
-        CarroSUVs cs3 = new CarroSUVs("SUV 3", 7, 0.15);
-        CarroSUVs cs4 = new CarroSUVs("SUV 4", 5, 0.16);
-        CarroSUVs cs5 = new CarroSUVs("SUV 5", 7, 0.14);
+        CarroSUVs cs = new CarroSUVs("SUV", 5, 0.12);
+        CarroSUVs cs2 = new CarroSUVs("SUV 2", 6, 0.09);
+        CarroSUVs cs3 = new CarroSUVs("SUV 3", 7, 0.07);
+        CarroSUVs cs4 = new CarroSUVs("SUV 4", 5, 0.06);
+        CarroSUVs cs5 = new CarroSUVs("SUV 5", 7, 0.02);
         
         cadastrarCarroNormalNorthCar(cs);
         cadastrarCarroNormalNorthCar(cs2);
@@ -86,11 +90,11 @@ public final class LocadoraDAO {
         
 
         //CARROS PREMIUM DA NORTHCAR
-        CarroSUVs cs6 = new CarroSUVs("SUV 6", 5, 0.3);
-        CarroSUVs cs7 = new CarroSUVs("SUV 7", 6, 0.4);
-        CarroSUVs cs8 = new CarroSUVs("SUV 8", 7, 0.35);
-        CarroSUVs cs9 = new CarroSUVs("SUV 9", 5, 0.5);
-        CarroSUVs cs10 = new CarroSUVs("SUV 10", 7, 0.27);
+        CarroSUVs cs6 = new CarroSUVs("SUV 6", 5, 0.38);
+        CarroSUVs cs7 = new CarroSUVs("SUV 7", 6, 0.7);
+        CarroSUVs cs8 = new CarroSUVs("SUV 8", 7, 0.5);
+        CarroSUVs cs9 = new CarroSUVs("SUV 9", 5, 0.35);
+        CarroSUVs cs10 = new CarroSUVs("SUV 10", 7, 0.3);
         
         cadastrarCarroPremiumNorthCar(cs6);
         cadastrarCarroPremiumNorthCar(cs7);
@@ -103,6 +107,7 @@ public final class LocadoraDAO {
     private final LocadoraSouthCar lsc; 
     private final LocadoraWestCar lwc; 
     private final LocadoraNorthCar lnc; 
+    
     
     public void cadastrarCarroNormalSouthCar(CarroCompacto cc){
         
@@ -204,10 +209,13 @@ public final class LocadoraDAO {
                     soma = 0;
                 }
                 
-                System.out.println("Carro:" + carroMenorCustoSemFidelidade.getModelo()+" Preço regular:" + menorSemFidelidade);
-                System.out.println("Carro:" + carroMenorCustoComFidelidade.getModelo()+" Preço com fidelidade:" + menorComFidelidade);
+                System.out.println("Carro:" + carroMenorCustoSemFidelidade.getModelo()+": WestCar");
+                System.out.println("Preço regular:" + menorSemFidelidade);       
+                System.out.println("Carro:" + carroMenorCustoComFidelidade.getModelo()+": WestCar");
+                System.out.println("Preço com fidelidade:" + menorComFidelidade);
    
             }
+            
             else
                 if (tipo.equalsIgnoreCase("premium")) {
                     System.out.println("PREMIUM ESPORTIVO");
@@ -252,12 +260,14 @@ public final class LocadoraDAO {
                         soma = 0;
                     }
 
-                    System.out.println("Carro:" + carroMenorCustoSemFidelidade.getModelo()+" Preço regular:" + menorSemFidelidade);
-                    System.out.println("Carro:" + carroMenorCustoComFidelidade.getModelo()+" Preço com fidelidade:" + menorComFidelidade);      
+                    System.out.println("Carro:" + carroMenorCustoSemFidelidade.getModelo()+": WestCar");
+                    System.out.println("Preço regular:" + menorSemFidelidade);       
+                    System.out.println("Carro:" + carroMenorCustoComFidelidade.getModelo()+": WestCar");
+                    System.out.println("Preço com fidelidade:" + menorComFidelidade);      
             }
             else{
                 
-                    //Tipo de carro não encontrado
+                    System.out.println("Tipo de carro não encontrado");
                 
             }
         }
@@ -308,8 +318,10 @@ public final class LocadoraDAO {
                         soma = 0;
                     }
 
-                    System.out.println("Carro:" + carroMenorCustoSemFidelidade.getModelo()+" Preço regular:" + menorSemFidelidade);
-                    System.out.println("Carro:" + carroMenorCustoComFidelidade.getModelo()+" Preço com fidelidade:" + menorComFidelidade);
+                    System.out.println("Carro:" + carroMenorCustoSemFidelidade.getModelo()+": SouthCar");
+                            System.out.println("Preço regular:" + menorSemFidelidade);       
+                            System.out.println("Carro:" + carroMenorCustoComFidelidade.getModelo()+": SoutthCar");
+                            System.out.println("Preço com fidelidade:" + menorComFidelidade);
                     
                 }
                 else
@@ -356,12 +368,14 @@ public final class LocadoraDAO {
                             soma = 0;
                         }
 
-                        System.out.println("Carro:" + carroMenorCustoSemFidelidade.getModelo()+" Preço regular:" + menorSemFidelidade);
-                        System.out.println("Carro:" + carroMenorCustoComFidelidade.getModelo()+" Preço com fidelidade:" + menorComFidelidade);
+                        System.out.println("Carro:" + carroMenorCustoSemFidelidade.getModelo()+": SouthCar");
+                            System.out.println("Preço regular:" + menorSemFidelidade);       
+                            System.out.println("Carro:" + carroMenorCustoComFidelidade.getModelo()+": SouthCar");
+                            System.out.println("Preço com fidelidade:" + menorComFidelidade);
                     }
                 else{
                 
-                    //Tipo de carro não encontrado
+                    System.out.println("Tipo de carro não encontrado");
                 
                 }
             }
@@ -412,8 +426,10 @@ public final class LocadoraDAO {
                             soma = 0;
                         }
 
-                        System.out.println("Carro:" + carroMenorCustoSemFidelidade.getModelo()+" Preço regular:" + menorSemFidelidade);
-                        System.out.println("Carro:" + carroMenorCustoComFidelidade.getModelo()+" Preço com fidelidade:" + menorComFidelidade);
+                        System.out.println("Carro:" + carroMenorCustoSemFidelidade.getModelo()+": NorthCar");
+                        System.out.println("Preço regular:" + menorSemFidelidade);       
+                        System.out.println("Carro:" + carroMenorCustoComFidelidade.getModelo()+": NorthCar");
+                        System.out.println("Preço com fidelidade:" + menorComFidelidade);
                      }
                     else
                         if (tipo.equalsIgnoreCase("premium")) {
@@ -460,18 +476,21 @@ public final class LocadoraDAO {
                                 soma = 0;
                             }
 
-                            System.out.println("Carro:" + carroMenorCustoSemFidelidade.getModelo()+" Preço regular:" + menorSemFidelidade);
-                            System.out.println("Carro:" + carroMenorCustoComFidelidade.getModelo()+" Preço com fidelidade:" + menorComFidelidade);
+                            System.out.println("Carro:" + carroMenorCustoSemFidelidade.getModelo()+": NorthCar");
+                            System.out.println("Preço regular:" + menorSemFidelidade);       
+                            System.out.println("Carro:" + carroMenorCustoComFidelidade.getModelo()+": NorthCar");
+                            System.out.println("Preço com fidelidade:" + menorComFidelidade);
                         }
-                    else{
-                
-                        //Tipo de carro não encontrado
-                    }
+                        else{
+                        
+                            System.out.println("Tipo de carro não encontrado");
+                        }
+            
                 }
         else{
-                //Não há automóveis disponíveis com mais de 7 lugares
-        
+                
+                    System.out.println("Quantidade de passageiros não permitida.");
+            }
         }
-    
-    }
 }
+

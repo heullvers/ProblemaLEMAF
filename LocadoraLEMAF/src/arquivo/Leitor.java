@@ -29,7 +29,7 @@ public class Leitor {
     
         try {
             
-            FileInputStream arquivo = new FileInputStream("/home/heuller/Documentos/LEMAF/ProblemaLEMAF/LocadoraLEMAF/arquivo.txt");
+            FileInputStream arquivo = new FileInputStream("/home/heuller/Documentos/LEMAF/ProblemaLEMAF/LocadoraLEMAF/arquivodeentrada.txt");
             InputStreamReader input = new InputStreamReader(arquivo);
             BufferedReader br = new BufferedReader(input);
             
@@ -52,13 +52,7 @@ public class Leitor {
             qntPassageiros = Integer.parseInt(palavras[1]);
             procura.buscarPalavra(palavras[2]);
             diasUteis = procura.getDiasUteis();
-            diasFDS = procura.getDiasFDS();
-            System.out.println("Tipo: " + tipo);
-            System.out.println("Qnt Passageiros: " + qntPassageiros);
-            System.out.println("Dias Uteis: " + diasUteis);
-            System.out.println("Dias FDS: " + diasFDS);
-            
-            
+            diasFDS = procura.getDiasFDS();            
             arquivo.close();
         } catch (Exception e) {
             
