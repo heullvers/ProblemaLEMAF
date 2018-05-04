@@ -1,0 +1,12 @@
+DOCUMENTAÇÃO PARA EXECUÇÃO DE APLICAÇÃO
+
+1. É preciso colocar o arquivo de entrada do usuário que possuirá obrigatoriamente o nome de "arquivodeentrada.txt" na pasta "ProblemaLEMAF/Arquivos/"
+	1.1 A entrada do usuário deverá possuir "tipoDeCarro":Quantidade de passageiros: Datas intervaladas por vírgula.
+		1.1.1 As datas deverão possuir Dia, Mês e Ano em sequência e qual dia da semana cairá separado por um espaço e dentro de parênteses obrigatoriamente. Exemplo:
+
+		premium:3:16mar2009 (seg),17mar2009 (ter),18mar2009 (qua)
+		 
+
+2. Feito isso é necessário a execução do programa por meio de um terminal ou IDEs, como o Netbeans.
+3. O arquivo de saída estará situado na pasta "ProblemaLEMAF/Arquivos/" com o nome de "arquivodesaida.txt". 
+A saída possuirá o modelo do carro com menor custo e sua respectiva locadora, além de mostrar o preço de um cliente  regular e fidelizado.
