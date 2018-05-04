@@ -1,6 +1,7 @@
 
 package main;
 
+import arquivo.Leitor;
 import automovel.Carro;
 import automovel.CarroCompacto;
 import automovel.CarroEsportivo;
@@ -21,22 +22,7 @@ public class Principal {
         LocadoraNorthCar lnc = new LocadoraNorthCar(630, 600, 580, 590);
         
         LocadoraDAO ld = new LocadoraDAO(lsc, lwc, lnc);
-        
-        CarroSUVs cs = new CarroSUVs("SUV", 5, 0.1);
-        CarroSUVs cs2 = new CarroSUVs("SUV", 6, 0.2);
-        CarroSUVs cs3 = new CarroSUVs("SUV", 7, 0.15);
-        CarroSUVs cs4 = new CarroSUVs("SUV", 5, 0.16);
-        CarroSUVs cs5 = new CarroSUVs("SUV", 7, 0.14);
-        
-        //CADASTRO CARROS NORMAIS NORTHCAR
-
-        ld.cadastrarCarroPremiumNorthCar(cs);
-        ld.cadastrarCarroPremiumNorthCar(cs2);
-        ld.cadastrarCarroPremiumNorthCar(cs3);
-        ld.cadastrarCarroPremiumNorthCar(cs4);
-        ld.cadastrarCarroPremiumNorthCar(cs5);
-        
-        
+    
         /*
         //CARROS WESTCAR
         CarroEsportivo ce = new CarroEsportivo("Esportivo", 2, 0.1);
@@ -109,17 +95,20 @@ public class Principal {
         */
         
         //dados do arquivo
+        /*
         String tipo = "premium";
         int qntPassageiros = 5;
         int diasUteis = 3;
         int diasFDS = 1;
         
         ld.escolherOpcao(tipo, qntPassageiros, diasUteis, diasFDS);
-        
+        */
         
         //Tipo do carro - NORMAL OU PREMIUM
         //Quantidade de passageiros
         //Datas
+        Leitor l = new Leitor();
+        l.lerArquivo();
         
         
     }
