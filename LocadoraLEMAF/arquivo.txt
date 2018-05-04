@@ -1,1 +1,1 @@
-normal:3:16mar2009(seg), 17mar2009(ter), 18mar2009(qua)
+normal:3:16mar2009 bb (seg) aaa, 17mar2009 cc (ter) aaa, 18mar2009 dd (qua) aaa
