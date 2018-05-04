@@ -12,6 +12,10 @@ public class Carro {
         this.qntPassageiros = qntPassageiros;
     }
 
+    public String getModelo() {
+        return modelo;
+    }
+
     
     
     

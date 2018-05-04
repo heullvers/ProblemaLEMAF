@@ -18,6 +18,8 @@ public class LocadoraSouthCar extends Locadora{
     public LocadoraSouthCar(double taxaMeioDeSemanaRegular, double taxaFimDeSemanaRegular, 
             double taxaMeioDeSemanaFidelidade, double taxaFimDeSemanaFidelidade) {
         super(taxaMeioDeSemanaRegular, taxaFimDeSemanaRegular, taxaMeioDeSemanaFidelidade, taxaFimDeSemanaFidelidade);
+        carrosNormais = new ArrayList<>();
+        carrosPremium = new ArrayList<>();
     }
 
 
@@ -46,6 +48,16 @@ public class LocadoraSouthCar extends Locadora{
 
     public void setCarrosPremium(ArrayList<CarroCompacto> carrosPremium) {
         this.carrosPremium = carrosPremium;
+    }
+    
+    public void exibirCarrosNormais(){
+        
+        for (CarroCompacto cn : carrosNormais) {
+            
+            System.out.println(cn.getModelo());
+            
+        }
+    
     }
     
     
