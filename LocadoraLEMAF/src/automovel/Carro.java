@@ -16,6 +16,11 @@ public class Carro {
         valorAluguelTotal = 0;
     }
 
+    public Carro() {
+    }
+    
+    
+
     public int getQntPassageiros() {
         return qntPassageiros;
     }
@@ -27,6 +32,7 @@ public class Carro {
     public String getModelo() {
         return modelo;
     }
+    
     
 
     

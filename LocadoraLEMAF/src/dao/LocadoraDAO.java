@@ -80,44 +80,49 @@ public class LocadoraDAO {
         if (qntPassageiros <= 2) {
             //Esportivo
             if (tipo.equalsIgnoreCase("normal")) {
-                System.out.println("entrei aqui");
                 double soma = 0;
-                double maiorSemFidelidade = 0;
-                double maiorComFidelidade = 0;
+                double menorSemFidelidade = Integer.MAX_VALUE;
+                double menorComFidelidade = Integer.MAX_VALUE;
+                CarroEsportivo carroMenorCustoSemFidelidade = new CarroEsportivo();
+                CarroEsportivo carroMenorCustoComFidelidade = new CarroEsportivo();
+                
+                //sem fidelidade
                 for (CarroEsportivo ce: lwc.getCarrosNormais()) {
-                    //sem fidelidade
+                    
                     for (int i = 0; i < diasUteis; i++) {
                         soma += lwc.taxarMeioDeSemanaRegular(ce);
-                        //System.out.println(ce.getModelo() + " " + soma);
                     }
                     for (int i = 0; i < diasFDS; i++) {
                         soma += lwc.taxarFimDeSemanaRegular(ce);
-                        //System.out.println(ce.getModelo() + " " + soma);
                     }
-                    
-                    if (soma > maiorSemFidelidade) {
-                        maiorSemFidelidade = soma;
+                    System.out.println(ce.getModelo() + " " + soma);
+                    if (soma < menorSemFidelidade) {
+                        menorSemFidelidade = soma;
+                        carroMenorCustoSemFidelidade = ce;
                     }
-                    //System.out.println(ce.getModelo() + " Valor final " + soma);
                     soma = 0;   
                 }
-                soma = 0;
+                
+                //com fidelidade
+
                 for (CarroEsportivo ce: lwc.getCarrosNormais()) {
-                    //com fidelidade
+                    
                     for (int i = 0; i < diasUteis; i++) {
                         soma += lwc.taxarMeioDeSemanaFidelidade(ce);
                     }
                     for (int i = 0; i < diasFDS; i++) {
                         soma += lwc.taxarFimDeSemanaFidelidade(ce);
                     }
-                    if (soma > maiorComFidelidade) {
-                        maiorComFidelidade = soma;
+                    if (soma < menorComFidelidade) {
+                        menorComFidelidade = soma;
+                        carroMenorCustoComFidelidade = ce;
+                   
                     }
                     soma = 0;
                 }
                 
-                System.out.println("Preço regular:" + maiorSemFidelidade);
-                System.out.println("Preço com fidelidade:" + maiorComFidelidade);
+                System.out.println("Carro:" + carroMenorCustoSemFidelidade.getModelo()+" Preço regular:" + menorSemFidelidade);
+                System.out.println("Carro:" + carroMenorCustoComFidelidade.getModelo()+" Preço com fidelidade:" + menorComFidelidade);
    
             }
             else{
