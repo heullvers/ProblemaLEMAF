@@ -26,10 +26,10 @@ public class Principal {
         
         ld.cadastrarCarroNormalSouthCar(cc);
         //ld.cadastrarCarroNormalSouthCar(cc2);
+        double resultado = lsc.taxarFimDeSemanaRegular(cc) + lsc.taxarFimDeSemanaRegular(cc);
         lsc.taxarFimDeSemanaRegular(cc);
-        //lsc.taxarFimDeSemanaRegular(cc);
         //lsc.taxarMeioDeSemanaFidelidade(cc2);
-        lsc.exibirCarrosNormais();
+        //System.out.println(resultado);
         
     }
     

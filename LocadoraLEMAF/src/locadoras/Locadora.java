@@ -12,10 +12,10 @@ public abstract class Locadora {
     protected double taxaMeioDeSemanaFidelidade;
     protected double taxaFimDeSemanaFidelidade;
     
-    public abstract void taxarMeioDeSemanaRegular(Carro c);
-    public abstract void taxarFimDeSemanaRegular(Carro c);
-    public abstract void taxarMeioDeSemanaFidelidade(Carro c);
-    public abstract void taxarFimDeSemanaFidelidade(Carro c);
+    public abstract double taxarMeioDeSemanaRegular(Carro c);
+    public abstract double taxarFimDeSemanaRegular(Carro c);
+    public abstract double taxarMeioDeSemanaFidelidade(Carro c);
+    public abstract double taxarFimDeSemanaFidelidade(Carro c);
     public abstract void exibirCarrosNormais();
     public abstract void exibirCarrosPremium();
 
